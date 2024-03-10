@@ -1,6 +1,8 @@
+// import { useState } from "react";
 import "./style.css";
 
 function App() {
+  // const [useState, setNewItem]=useState("")
   return (
     <>
       <form className="new-item-form">
