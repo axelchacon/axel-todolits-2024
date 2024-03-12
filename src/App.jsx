@@ -11,6 +11,7 @@ function App() {
   function handleSubmit(event) {
     event.preventDefault();
     console.log("Submit");
+    if (newItem === "") return;
     ///del setTodos es un valor array o es un estado tipo array por lo que se maneja especial mente con copia usando los pntos "....."
     setTodos([
       ...todos,
