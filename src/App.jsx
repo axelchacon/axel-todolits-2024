@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./style.css";
 import NewTodoForm from "./components/NewTodoForm";
+import TodoList from "./components/TodoList";
 
 function App() {
   // const [newItem, setNewItem] = useState(""); ///variable de estado para controlar el input
@@ -68,30 +69,7 @@ function App() {
       <NewTodoForm onSubmit={addTodo} />
 
       <h1 className="header">Todo List</h1>
-      <ul className="list">
-        {/* esto retorna algo si las condiciones sí o sí son true */}
-        {todos.length === 0 && "No todos"}
-
-        {todos.map((todo) => {
-          return (
-            <li key={todo.id}>
-              <label>
-                <input
-                  type="checkbox"
-                  onChange={(e) => toggleTodo(todo.id, e.target.checked)} //target y checked son propiedad
-                />
-                {todo.title}
-              </label>
-              <button
-                className="btn btn-danger"
-                onClick={() => deleteTodo(todo.id)}
-              >
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
+      <TodoList todos={todos} />
     </>
   );
 }
