@@ -1,14 +1,23 @@
-// import { useState } from "react";
+import { useState } from "react";
 import "./style.css";
 
 function App() {
-  // const [useState, setNewItem]=useState("")
+  const [newItem, setNewItem] = useState("");
+  function handleChange(event) {
+    setNewItem(event.target.value);
+  }
   return (
     <>
       <form className="new-item-form">
         <div className="form-row">
           <label htmlFor="item">New Item</label>
-          <input type="text" id="item" />
+          <input
+            type="text"
+            id="item"
+            value={newItem}
+            onChange={handleChange}
+          />
+          <p>{newItem}</p>
         </div>
         <button className="btn">Add</button>
       </form>
