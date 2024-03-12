@@ -46,6 +46,11 @@ function App() {
       });
     });
   }
+  function deleteTodo(id) {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== id);
+    });
+  }
   console.log(todos);
   return (
     <>
@@ -64,6 +69,9 @@ function App() {
       </form>
       <h1 className="header">Todo List</h1>
       <ul className="list">
+        {/* esto retorna algo si las condiciones sí o sí son true */}
+        {todos.length === 0 && "No todos"}
+
         {todos.map((todo) => {
           return (
             <li key={todo.id}>
@@ -74,7 +82,12 @@ function App() {
                 />
                 {todo.title}
               </label>
-              <button className="btn btn-danger">Delete</button>
+              <button
+                className="btn btn-danger"
+                onClick={() => deleteTodo(todo.id)}
+              >
+                Delete
+              </button>
             </li>
           );
         })}
