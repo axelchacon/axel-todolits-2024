@@ -23,7 +23,20 @@ function App() {
     setNewItem(""); ///esto permite que luego de escibir en el input, ese valor no se queda en el cuadro del input al moento de terminar de aplastar ADD sino que al terminar de apalstar queda vacío si guardarse el valor último escrito agregado
   }
 
+  //// toggleTodo forma1 /////
+  // function toggleTodo(id, checked) {
+  //   setTodos(function (currentTodos) {
+  //     return currentTodos.map(function (todo) {
+  //       if (todo.id === id) {
+  //         return { ...todo, completed: checked };
+  //       }
+  //       return todo;
+  //     });
+  //   });
+  // }
+  //// toggleTodo forma2 /////
   function toggleTodo(id, checked) {
+    ////setTodos = currentTodos
     setTodos((currentTodos) => {
       return currentTodos.map((todo) => {
         if (todo.id == id) {
@@ -57,7 +70,7 @@ function App() {
               <label>
                 <input
                   type="checkbox"
-                  onChange={(e) => toggleTodo(todo.id, e.target.checked)}
+                  onChange={(e) => toggleTodo(todo.id, e.target.checked)} //target y checked son propiedad
                 />
                 {todo.title}
               </label>
