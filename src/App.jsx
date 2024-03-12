@@ -22,6 +22,17 @@ function App() {
     ]);
     setNewItem(""); ///esto permite que luego de escibir en el input, ese valor no se queda en el cuadro del input al moento de terminar de aplastar ADD sino que al terminar de apalstar queda vacío si guardarse el valor último escrito agregado
   }
+
+  function toggleTodo(id, checked) {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id == id) {
+          return { ...todo, completed: checked };
+        }
+        return todo;
+      });
+    });
+  }
   console.log(todos);
   return (
     <>
@@ -44,7 +55,10 @@ function App() {
           return (
             <li key={todo.id}>
               <label>
-                <input type="checkbox" />
+                <input
+                  type="checkbox"
+                  onChange={(e) => toggleTodo(todo.id, e.target.checked)}
+                />
                 {todo.title}
               </label>
               <button className="btn btn-danger">Delete</button>
