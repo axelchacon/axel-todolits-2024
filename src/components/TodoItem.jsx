@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function TodoItem({ id, title, checked, toggleTodo, deleteTodo }) {
+const TodoItem = ({ id, title, checked, toggleTodo, deleteTodo }) => {
   return (
     <li key={id}>
       <label>
@@ -15,7 +15,7 @@ function TodoItem({ id, title, checked, toggleTodo, deleteTodo }) {
       </button>
     </li>
   );
-}
+};
 TodoItem.propTypes = {
   id: PropTypes.string,
   title: PropTypes.string,
