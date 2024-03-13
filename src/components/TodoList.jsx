@@ -1,7 +1,7 @@
 // rafce
 import TodoItem from "./TodoItem";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   return (
     <ul className="list">
       {/* esto retorna algo si las condiciones sí o sí son true */}
@@ -9,7 +9,14 @@ const TodoList = ({ todos }) => {
 
       {todos.map((todo) => {
         return (
-          <TodoItem id={todo.id} title={todo.title} checked={todo.completed} />
+          <TodoItem
+            key={todo.id}
+            id={todo.id}
+            title={todo.title}
+            checked={todo.completed}
+            toggleTodo={toggleTodo}
+            deleteTodo={deleteTodo}
+          />
         );
       })}
     </ul>

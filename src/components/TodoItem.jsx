@@ -1,18 +1,15 @@
-function TodoItem({ id, title, checked }) {
+function TodoItem({ id, title, checked, toggleTodo, deleteTodo }) {
   return (
     <li key={id}>
       <label>
         <input
           type="checkbox"
           checked={checked}
-          //   onChange={(e) => toggleTodo(id, e.target.checked)} //target y checked son propiedad
+          onChange={(e) => toggleTodo(id, e.target.checked)} //target y checked son propiedad
         />
         {title}
       </label>
-      <button
-        className="btn btn-danger"
-        //onClick={() => deleteTodo(id)}
-      >
+      <button className="btn btn-danger" onClick={() => deleteTodo(id)}>
         Delete
       </button>
     </li>
