@@ -1,6 +1,6 @@
 // rafce
 import TodoItem from "./TodoItem";
-
+import PropTypes from "prop-types";
 const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
   return (
     <ul className="list">
@@ -47,5 +47,10 @@ const TodoList = ({ todos, toggleTodo, deleteTodo }) => {
 //           );
 //         })}
 //       </ul> */}
+TodoList.propTypes = {
+  todos: PropTypes.array,
+  toggleTodo: PropTypes.func,
+  deleteTodo: PropTypes.func,
+};
 
 export default TodoList;
